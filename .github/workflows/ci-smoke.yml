@@ -1,0 +1,15 @@
+name: CI Smoke Placeholder
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  placeholder:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Placeholder
+        run: |
+          echo "CI scaffold created. Add real smoke tests in Week 2."
