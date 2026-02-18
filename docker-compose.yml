@@ -1,0 +1,34 @@
+services:
+  engine:
+    build:
+      context: ../sanguosha
+      dockerfile: backend/Dockerfile
+    container_name: sgs-engine
+    environment:
+      PORT: 8000
+      AUTH_DISABLED: "true"
+    ports:
+      - "8000:8000"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/api/health')"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+
+  gateway:
+    build:
+      context: .
+      dockerfile: apps/gateway/Dockerfile
+    container_name: sgs-gateway
+    environment:
+      PORT: 8787
+      ADMIN_USERNAME: admin
+      ADMIN_PASSWORD: CHANGE_ME
+      ENGINE_HTTP_BASE: http://engine:8000
+      ENGINE_WS_BASE: ws://engine:8000/ws
+      ENGINE_AUTO_PLAYERS: 2
+    ports:
+      - "8787:8787"
+    depends_on:
+      engine:
+        condition: service_healthy
