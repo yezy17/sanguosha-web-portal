@@ -30,3 +30,10 @@
   - 登录→建房→开局→轮询状态→结束对局。
 - 本地实测通过，获得真实引擎 `game_state/game_end` 数据。
 - 关键证据与限制已记录到 `findings.md`。
+
+## 2026-02-18 09:55 CST - 方向修正（强制切换到 FreeKill）
+- 用户要求明确为“开源 FreeKill 引擎”，此前接入本地 `sanguosha` 后端不符合要求。
+- 已完成仓库拉取：
+  - `/Users/apollomac/Project/FreeKill`（官方主仓）
+  - `/Users/apollomac/Project/freekill-asio`（官方推荐纯服务端）
+- 当前结论：下一阶段必须以 `freekill-asio + freekill-core` 作为服务端基座，gateway 只保留适配层。
