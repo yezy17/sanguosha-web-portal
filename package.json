@@ -1,0 +1,14 @@
+{
+  "name": "sanguosha-web-portal",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "echo 'TODO: wire dev runners'",
+    "build": "echo 'TODO: build'",
+    "test": "echo 'TODO: test'"
+  }
+}
