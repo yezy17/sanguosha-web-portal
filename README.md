@@ -23,3 +23,7 @@
 1. 服务端权威状态，前端只渲染。
 2. 每局必须有事件日志，可 replay 复现。
 3. 每个可运行里程碑立即 push。
+
+
+## Local quick start
+See `docs/dev-quickstart.md`
